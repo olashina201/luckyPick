@@ -23,8 +23,7 @@ $search_value=$_POST["search"];
 
 
 
-$sql = "INSERT INTO luckyNumber (numbers, multiplier, date)
-VALUES ('$nums', '$mul', '$date')";
+$sql = "INSERT INTO luckyNumber (id, numbers, multiplier, date) VALUES ('$oid', '$nums', '$mul', '$date')";
 
 if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully !";

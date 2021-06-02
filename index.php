@@ -121,12 +121,14 @@ https://templatemo.com/tm-562-space-dynamic
       
       
       <?php
+      
       $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
       $output = '';
+
         if (isset($_POST['submit'])) {
           $searchValue = $_POST['search'];
           $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
-          $count = mysql_num_rows($query);
+          $count = mysqli_num_rows($query);
           $result = mysqli_query($db, $query);
 
           if ($count == 0) {
@@ -138,7 +140,7 @@ https://templatemo.com/tm-562-space-dynamic
               $lucky_mul = $_row['multipler'];
               $lucky_date = $_row['date'];
               
-              $output .= '<div> '.$lucky_num.' '.$lucky_mul.' </div>';
+              $output .= '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
           }
   
         };
@@ -203,7 +205,7 @@ https://templatemo.com/tm-562-space-dynamic
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
+          <form id="contact" action="contact.php" method="post">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>

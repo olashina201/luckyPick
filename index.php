@@ -85,7 +85,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <h6>Welcome to Lucky Pick</h6>
                 <h2>Winning <em>Number</em> <span>Search</span></h2>
                 <p>Check the winning numbers and make sure they are for the draw date printed on your ticket.</p>
-                <form id="search" action="index.php" method="post">
+                <form id="search" action="index.php" method="get">
                   <fieldset>
                     <input type="number" name="search" class="email" placeholder="Search Number..." autocomplete="on" required>
                   </fieldset>
@@ -125,25 +125,23 @@ https://templatemo.com/tm-562-space-dynamic
       $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
       $output = '';
 
-        if (isset($_POST['submit'])) {
-          $searchValue = $_POST['search'];
+        if (isset($_GET['search'])) {
+          $searchValue = $_GET['search'];
           $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
-          $count = mysqli_num_rows($query);
           $result = mysqli_query($db, $query);
 
-          if ($count == 0) {
-            $output = "no search result";
-          } else {
-            while ($row = mysqli_fetch_array($result)) {
-              $lucky_id = $_row['id'];
-              $lucky_num = $_row['numbers'];
-              $lucky_mul = $_row['multipler'];
-              $lucky_date = $_row['date'];
-              
-              $output .= '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
+          if (mysqli_num_rows($result) < 1) {
+            echo "Nothing found.";
+          }
+          while ($row = mysqli_fetch_assoc($result)) {
+            $lucky_id = $row['id'];
+            $lucky_num = $row['numbers'];
+            $lucky_mul = $row['multiplier'];
+            $lucky_date = $row['date'];
+            
+            $output .= '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
           }
   
-        };
         };
       ?>
 
@@ -205,7 +203,7 @@ https://templatemo.com/tm-562-space-dynamic
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="contact.php" method="post">
+          <form id="contact" action="index.php" method="post">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
@@ -241,6 +239,25 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </div>
+  <?php
+
+if (isset($_POST['submit'])) {
+
+    $name  = $_POST['name'];
+    $last_name = $_POST['surname'];
+    $email    = $_POST['email'];
+    $message = $_POST['message'];
+
+    $EmailTo = "olashina201@gmail.com";
+    $Subject = "New message from Leno landing page";
+
+    $formcontent="From: $name \n Message: $message";
+    $subject = "Contact Form";
+    $mailheader = "From: $email \r\n";
+    mail($EmailTo, $subject, $formcontent, $mailheader) or die("Error!");
+    echo "Thank You!";
+
+  }?>
 
   <footer>
     <div class="container">

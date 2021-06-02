@@ -2,25 +2,22 @@
      $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
      $output = '';
 
-       if (isset($_POST['submit'])) {
-         $searchValue = $_POST['search'];
-         $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
-         $count = mysqli_num_rows($query);
+       if (isset($_GET['search'])) {
+         $searchValue = $_GET['search'];
+         $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%{$searchValue}%'";
          $result = mysqli_query($db, $query);
+         if (mysqli_num_rows($result) < 1) {
+            echo "Nothing found.";
+        }
 
-         if ($count == 0) {
-           $output = "no search result";
-         } else {
-           while ($row = mysqli_fetch_array($result)) {
-             $lucky_id = $_row['id'];
-             $lucky_num = $_row['numbers'];
-             $lucky_mul = $_row['multipler'];
-             $lucky_date = $_row['date'];
+           while ($row = mysqli_fetch_assoc($result)) {
+             $lucky_id = $row['id'];
+             $lucky_num = $row['numbers'];
+             $lucky_mul = $row['multiplier'];
+             $lucky_date = $row['date'];
              
-             $output .= '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
+             echo '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
          }
- 
-       };
        };
 ?>
 
@@ -33,7 +30,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="search" action="search.php" method="post">
+    <form id="search" action="search.php" method="get">
         <fieldset>
         <input type="number" name="search" class="email" placeholder="Search Number..." autocomplete="on" required>
         </fieldset>

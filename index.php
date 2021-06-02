@@ -205,31 +205,51 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </div>
+
   <?php
+  use \PHPMailer\PHPMailer\PHPMailer;
+  require_once 'PHPMailer/Exception.php';
+  require_once 'PHPMailer/PHPMailer.php';
+  require_once 'PHPMailer/SMTP.php';
+  $mail = new PHPMailer(true);
 
-if (isset($_POST['submit'])) {
+    if (isset($_POST['submit'])) {
 
-    $name  = $_POST['name'];
-    $last_name = $_POST['surname'];
-    $email    = $_POST['email'];
-    $message = $_POST['message'];
+        $name  = $_POST['name'];
+        $last_name = $_POST['surname'];
+        $email    = $_POST['email'];
+        $message = $_POST['message'];
 
-    $EmailTo = "olashina201@gmail.com";
-    $Subject = "New message from Leno landing page";
+        try {
+          $mail->isSMTP();
+          $mail->Host = 'smtp.gmail.com';
+          $mail-> SMTPAuth = true;
+          $mail -> username = 'olashina201@gmail.com';
+          $mail -> password = 'quadri201';
+          $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+          $mail -> port = '578';
 
-    $formcontent="From: $name \n Message: $message";
-    $subject = "Contact Form";
-    $mailheader = "From: $email \r\n";
-    mail($EmailTo, $subject, $formcontent, $mailheader) or die("Error!");
-    echo "Thank You!";
+          $mail -> setFrom('olashina201@gmail.com');
+          $mail -> addAddress('olashina201@gmail.com');
 
-  }?>
+          $mail -> isHTML(true);
+          $mail -> Subject = 'message received';
+          $mail -> Body = '<h3> Name: $name <br> Email: $email <br> Message: $message </h3>';
+
+          $mail -> send();
+
+          $alert = "<script type=text/javascript> alert('message sent successfully') </script>";
+        } catch (\Exception $e) {
+          echo "<script type=text/javascript> alert('.$e->getMessage().') </script>";
+        }
+    }
+  ?>
 
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2021 Lucky-Pick Co. All Rights Reserved. 
+          <p>© Copyright <?php echo date("Y") ?> Lucky-Pick Co. All Rights Reserved. 
           
           <br>Design: <a rel="nofollow" href="https://olashina.netlify.app">Olashina</a></p>
         </div>

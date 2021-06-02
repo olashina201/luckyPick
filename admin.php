@@ -80,9 +80,9 @@ https://templatemo.com/tm-562-space-dynamic
       <div class="row">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <div class="section-heading">
-            <h2>Feel Free To Send Us a Message About our Website</h2>
+            <h2>Simple Admin Page</h2>
             <div class="phone-info">
-              <h4>For any enquiry, Call Us: <span><i class="fa fa-phone"></i> <a href="#">+2348136156937</a></span></h4>
+              <h4>Add Lucky Numbers With this Form</h4>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ https://templatemo.com/tm-562-space-dynamic
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>© Copyright 2021 Lucky-Pick Co. All Rights Reserved. 
+          <p>© Copyright <?php echo date("Y") ?> Lucky-Pick Co. All Rights Reserved. 
           
           <br>Design: <a rel="nofollow" href="https://olashina.netlify.app">Olashina</a></p>
         </div>

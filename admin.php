@@ -57,11 +57,10 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
-              <li class="scroll-to-section"><a href="#services">Winners</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Lucky-Pick</a></li>
-              <li class="scroll-to-section"><a href="#blog">Super Lotto</a></li> 
+              <li class="scroll-to-section"><a href="admin.php">Admin</a></li> 
               <li class="scroll-to-section"><a href="#contact">Message Us</a></li> 
               <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Contact Now</a></div></li> 
             </ul>        

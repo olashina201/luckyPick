@@ -169,7 +169,7 @@ https://templatemo.com/tm-562-space-dynamic
           </div>
         </div>
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="index.php" method="post">
+          <form id="contact" action="mail.php" method="post">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
@@ -206,44 +206,7 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
-  <?php
-  use \PHPMailer\PHPMailer\PHPMailer;
-  require_once 'PHPMailer/Exception.php';
-  require_once 'PHPMailer/PHPMailer.php';
-  require_once 'PHPMailer/SMTP.php';
-  $mail = new PHPMailer(true);
-
-    if (isset($_POST['submit'])) {
-
-        $name  = $_POST['name'];
-        $last_name = $_POST['surname'];
-        $email    = $_POST['email'];
-        $message = $_POST['message'];
-
-        try {
-          $mail->isSMTP();
-          $mail->Host = 'smtp.gmail.com';
-          $mail-> SMTPAuth = true;
-          $mail -> username = 'olashina201@gmail.com';
-          $mail -> password = 'quadri201';
-          $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-          $mail -> port = '578';
-
-          $mail -> setFrom('olashina201@gmail.com');
-          $mail -> addAddress('olashina201@gmail.com');
-
-          $mail -> isHTML(true);
-          $mail -> Subject = 'message received';
-          $mail -> Body = '<h3> Name: $name <br> Email: $email <br> Message: $message </h3>';
-
-          $mail -> send();
-
-          $alert = "<script type=text/javascript> alert('message sent successfully') </script>";
-        } catch (\Exception $e) {
-          echo "<script type=text/javascript> alert('.$e->getMessage().') </script>";
-        }
-    }
-  ?>
+  
 
   <footer>
     <div class="container">

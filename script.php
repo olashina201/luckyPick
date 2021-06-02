@@ -15,11 +15,10 @@ function CloseCon($conn){
 }
 
 
-$oid = $_POST['luckyId'];
+$oid = $_POST['luckyid'];
 $nums = $_POST['lucky'];
 $mul = $_POST['multiplier'];
 $date = $_POST['date'];
-$search_value=$_POST["search"];
 
 
 

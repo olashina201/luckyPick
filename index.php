@@ -124,21 +124,21 @@ https://templatemo.com/tm-562-space-dynamic
       <?php
       
       if (isset($_POST['submit'])) {
-      $searchValue = $_POST['search'];
-      $con = new mysqli("localhost", "root", "", "lucky");
-      if ($con->connect_error) {
-      echo "connection Failed: " . $con->connect_error;
-      } else {
-      $sql = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
-      
-      $result = mysqli_query($con, $sql);
-      while ($row = $result->fetch_assoc()) {
-      echo $row['numbers'] . "<br>";
-      echo $row['multiplier'] . "<br>";
-      }
-      
-      
-      }   
+        $searchValue = $_POST['search'];
+        $con = new mysqli("localhost", "root", "", "lucky");
+        
+        if ($con->connect_error) {
+          echo "connection Failed: " . $con->connect_error;
+        } else {
+          $sql = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
+          
+          $result = mysqli_query($con, $sql);
+
+          while ($row = $result->fetch_assoc()) {
+            echo $row['numbers'] . "<br>";
+            echo $row['multiplier'] . "<br>";
+          }
+        }   
       }
       
       ?>

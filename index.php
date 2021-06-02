@@ -125,6 +125,7 @@ https://templatemo.com/tm-562-space-dynamic
             $lucky_num = $row['numbers'];
             $lucky_mul = $row['multiplier'];
             $lucky_date = $row['date'];
+
             echo "<div class='col-lg-3 col-sm-6'>
             <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.3s'>
               <div class='showed-content'>

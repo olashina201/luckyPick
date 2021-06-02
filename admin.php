@@ -106,7 +106,7 @@ https://templatemo.com/tm-562-space-dynamic
               </div>
               <div class="col-lg-12">
               <fieldset>
-              <input type="number" name="lucky" id="email" pattern-"-" placeholder="lucky number">
+              <input type="text" name="lucky[]" id="email"  placeholder="lucky number">
               </fieldset>
               </div>
               <div class="col-lg-12">

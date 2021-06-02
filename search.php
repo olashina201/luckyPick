@@ -15,6 +15,7 @@
              $lucky_num = $row['numbers'];
              $lucky_mul = $row['multiplier'];
              $lucky_date = $row['date'];
+             $num_explode = explode(" , ",$row['numbers']);
              
              echo '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
          }

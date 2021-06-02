@@ -19,10 +19,15 @@ $oid = $_POST['luckyid'];
 $nums = $_POST['lucky'];
 $mul = $_POST['multiplier'];
 $date = $_POST['date'];
+$num_str;
+
+foreach ($nums as $num_arr) {
+	$num_str = $num_arr;
+}
 
 
 
-$sql = "INSERT INTO luckyNumber (id, numbers, multiplier, date) VALUES ('$oid', '$nums', '$mul', '$date')";
+$sql = "INSERT INTO luckyNumber (id, numbers, multiplier, date) VALUES ('$oid', '$num_str', '$mul', '$date')";
 
 if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully !";

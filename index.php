@@ -106,21 +106,7 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
-  <div id="portfolio" class="our-portfolio section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <h2>See All <em>Winning</em> <span>Numbers</span></h2>
-          </div>
-        </div>
-      </div>
-      </head>
-      
-      
-      
-      
-      <?php
+  <?php
       
       
       function search()
@@ -145,7 +131,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <img src='assets/images/lucky pick bitmap.jpg' >
                 <p>Draw # $lucky_id -  $lucky_date </p>
                 <h4> $lucky_num </h4>
-                <p>Multiplier</p>
+                <span>Multiplier</span>
                 <p> $lucky_mul </p>
               </div>
             </div>
@@ -156,10 +142,20 @@ https://templatemo.com/tm-562-space-dynamic
       }
       ?>
       
+  <div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading  wow bounceIn" data-wow-duration="1s" data-wow-delay="0.2s">
+            <h2>Your <em>Search Results</em> <span>Will show here</span></h2>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <?php search(); ?>
       </div>
-
+    </div>
+  </div>
   <div id="contact" class="contact-us section">
     <div class="container">
       <div class="row">

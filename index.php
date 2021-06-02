@@ -139,7 +139,18 @@ https://templatemo.com/tm-562-space-dynamic
             $lucky_mul = $row['multiplier'];
             $lucky_date = $row['date'];
             
-            $output .= '<div> '.$lucky_num.' '.' '.$lucky_mul.' </div>';
+            $output .= '<div> '.$lucky_id.' </div>';
+            echo "<div class='col-lg-3 col-sm-6'>
+            <div class='item wow bounceInUp' data-wow-duration='1s' data-wow-delay='0.3s'>
+              <div class='showed-content'>
+                <img src='assets/images/lucky pick bitmap.jpg' >
+                <p>Draw # $lucky_id -  $lucky_date </p>
+                <h4> $lucky_num </h4>
+                <p>Multiplier</p>
+                <p> $lucky_mul </p>
+              </div>
+            </div>
+        </div>";
           }
   
         };
@@ -153,7 +164,10 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="showed-content">
                 <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                <h4><?php echo $output ?></h4>
+                <p>Draw #<?php $lucky_id ?> - <?php $lucky_date ?></p>
+                <h4><?php $lucky_num ?></h4>
+                <p>Multiplier</p>
+                <p><?php $lucky_mul ?></p>
               </div>
             </div>
         </div>

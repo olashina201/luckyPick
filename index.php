@@ -121,57 +121,39 @@ https://templatemo.com/tm-562-space-dynamic
       
       
       <?php
-      
-      // if (isset($_POST['submit'])) {
-      //   $searchValue = $_POST['search'];
-      //   $con = new mysqli("localhost", "root", "", "lucky");
-
-      //   if ($con->connect_error) {
-      //     echo "connection Failed: " . $con->connect_error;
-      //   } else {
-      //     $sql = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
-          
-      //     $result = mysqli_query($con, $sql);
-
-      //     while ($row = $result->fetch_assoc()) {
-      //       echo $row['numbers'] . "<br>";
-      //       echo $row['multiplier'] . "<br>";
-      //     }
-      //   }   
-      // }
-
+      $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
+      $output = '';
         if (isset($_POST['submit'])) {
           $searchValue = $_POST['search'];
-          $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
           $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
+          $count = mysql_num_rows($query);
           $result = mysqli_query($db, $query);
 
-          while ($row = mysqli_fetch_array($result)) {
-            $lucky_id = $_row['id'];
-            $lucky_num = $_row['numbers'];
-            $lucky_mul = $_row['multipler'];
-            $lucky_date = $_row['date'];
-
-            echo '<div class="row">
-            <div class="col-lg-3 col-sm-6">
-                <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
-                  <div class="showed-content">
-                    <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                    <h4>'. $_row[numbers] .'</h4>
-                  </div>
-                </div>
-            </div>
-      </div>';  
-          };
+          if ($count == 0) {
+            $output = "no search result";
+          } else {
+            while ($row = mysqli_fetch_array($result)) {
+              $lucky_id = $_row['id'];
+              $lucky_num = $_row['numbers'];
+              $lucky_mul = $_row['multipler'];
+              $lucky_date = $_row['date'];
+              
+              $output .= '<div> '.$lucky_num.' '.$lucky_mul.' </div>';
+          }
+  
+        };
         };
       ?>
+
+
+      <?php print("$output") ?>
       
       <div class="row">
         <div class="col-lg-3 col-sm-6">
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.3s">
               <div class="showed-content">
                 <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                <h4><?php echo $lucky_num ?></h4>
+                <h4><?php echo $output ?></h4>
               </div>
             </div>
         </div>
@@ -180,7 +162,7 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.4s">
               <div class="showed-content">
                 <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                 <h4><?php echo $lucky_num ?></h4>
+                 <h4><?php echo $output ?></h4>
               </div>
             </div>
           </a>
@@ -190,7 +172,7 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.5s">
               <div class="showed-content">
                 <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                 <h4><?php echo $lucky_num ?></h4>
+                 <h4><?php echo $output ?></h4>
               </div>
             </div>
           </a>
@@ -200,7 +182,7 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="item wow bounceInUp" data-wow-duration="1s" data-wow-delay="0.6s">
               <div class="showed-content">
                 <img src="assets/images/lucky pick bitmap.jpg" alt="">
-                 <h4><?php echo $lucky_num ?></h4>
+                 <h4><?php echo $output ?></h4>
               </div>
             </div>
           </a>

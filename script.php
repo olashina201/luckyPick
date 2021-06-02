@@ -10,10 +10,9 @@
  $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
 
  
-function CloseCon($conn)
- {
- $conn -> close();
- }
+function CloseCon($conn){	
+	$conn -> close();
+}
 
 
 $oid = $_POST['luckyId'];
@@ -29,10 +28,9 @@ VALUES ('$nums', '$mul', '$date')";
 
 if (mysqli_query($conn, $sql)) {
 		echo "New record created successfully !";
-	 } else {
-		echo "Error: " . $sql . "
-" . mysqli_error($conn);
-	 }
+	} else {
+		echo "Error: " . $sql . "" . mysqli_error($conn);
+	}
 
 $conn->close();
 

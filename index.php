@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./assets/" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/Jack2.png" type="image/x-icon">
     <title>Lucky Pick</title>
 
     <!-- Bootstrap core CSS -->
@@ -60,7 +60,7 @@ https://templatemo.com/tm-562-space-dynamic
               <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Lucky-Pick</a></li>
-              <li class="scroll-to-section"><a href="admin.php">Admin</a></li> 
+              <li class="scroll-to-section"><a href="/lucky-pick/admin">Admin</a></li> 
               <li class="scroll-to-section"><a href="#contact">Message Us</a></li> 
               <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Contact Now</a></div></li> 
             </ul>        
@@ -87,7 +87,7 @@ https://templatemo.com/tm-562-space-dynamic
                 <p>Check the winning numbers and make sure they are for the draw date printed on your ticket.</p>
                 <form id="search" action="index.php" method="get">
                   <fieldset>
-                    <input type="number" name="search" class="email" placeholder="Search Number..." autocomplete="on" required>
+                    <input type="text" name="search" class="email" placeholder="Search Number..." autocomplete="on" required>
                   </fieldset>
                   <fieldset>
                     <button type="submit" class="main-button">Search</button>
@@ -114,7 +114,7 @@ https://templatemo.com/tm-562-space-dynamic
         $db = mysqli_connect('localhost', 'root', '', 'lucky') or die("Connect failed: %s\n". $conn -> error);
         if (isset($_GET['search'])) {
           $searchValue = $_GET['search'];
-          $query = "SELECT * FROM luckyNumber WHERE numbers OR multiplier LIKE '%$searchValue%'";
+          $query = "SELECT * FROM luckyNumber WHERE numbers LIKE '%$searchValue%'";
           $result = mysqli_query($db, $query);
 
           if (mysqli_num_rows($result) < 1) {
@@ -132,8 +132,6 @@ https://templatemo.com/tm-562-space-dynamic
                 <img src='assets/images/lucky pick bitmap.jpg' >
                 <p>Draw # $lucky_id -  $lucky_date </p>
                 <h4> $lucky_num </h4>
-                <span>Multiplier</span>
-                <p> $lucky_mul </p>
               </div>
             </div>
         </div>";

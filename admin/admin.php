@@ -24,6 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="../assets/images/Jack2.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <title>Lucky Pick</title>
@@ -73,9 +74,9 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-            <li class="scroll-to-section"><a href="index.php" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#about">About Us</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Lucky-Pick</a></li>
+            <li class="scroll-to-section"><a href="../index.php" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="../index.php">About Us</a></li>
+              <li class="scroll-to-section"><a href="../index.php">Lucky-Pick</a></li>
               <li class="scroll-to-section"><a href="admin.php">Admin</a></li> 
               <li class="scroll-to-section"><div class="main-red-button"><a href="logout.php?logout=true">Sign Out</a></div></li> 
             </ul>        

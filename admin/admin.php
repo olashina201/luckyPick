@@ -1,3 +1,19 @@
+<?php
+
+	require_once("session.php");
+
+	require_once("class.user.php");
+	$auth_user = new USER();
+
+
+	$user_id = $_SESSION['user_session'];
+
+	$stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
+	$stmt->execute(array(":user_id"=>$user_id));
+
+	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,8 +77,7 @@ https://templatemo.com/tm-562-space-dynamic
               <li class="scroll-to-section"><a href="#about">About Us</a></li>
               <li class="scroll-to-section"><a href="#portfolio">Lucky-Pick</a></li>
               <li class="scroll-to-section"><a href="admin.php">Admin</a></li> 
-              <li class="scroll-to-section"><a href="#contact">Message Us</a></li> 
-              <li class="scroll-to-section"><div class="main-red-button"><a href="#contact">Contact Now</a></div></li> 
+              <li class="scroll-to-section"><div class="main-red-button"><a href="logout.php?logout=true">Sign Out</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>

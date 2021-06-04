@@ -29,13 +29,13 @@
     <title>Lucky Pick</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="assets/css/animated.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.css">
+    <link rel="stylesheet" href="../assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../assets/css/animated.css">
+    <link rel="stylesheet" href="../assets/css/owl.css">
 <!--
     
 TemplateMo 562 Space Dynamic
@@ -67,7 +67,7 @@ https://templatemo.com/tm-562-space-dynamic
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="../index.php" class="logo">
               <h4>Lucky<span>Pick</span></h4>
             </a>
             <!-- ***** Logo End ***** -->
@@ -104,7 +104,7 @@ https://templatemo.com/tm-562-space-dynamic
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
           <form id="contact" action="script.php" method="post">
             <div class="row">
-              <div class="col-lg-6">
+              <div class="col-lg-12">
                 <fieldset>
                   <input type="number" name="luckyid" id="name" placeholder="luckyid" autocomplete="on" required>
                 </fieldset>
@@ -116,17 +116,17 @@ https://templatemo.com/tm-562-space-dynamic
               </div> -->
               <div class="col-lg-12">
                 <fieldset>
+                <input type="text" name="lucky[]" id="email"  placeholder="lucky number">
+                </fieldset>
+              </div>
+              <div class="col-lg-12">
+                <fieldset>
                   <input type="date" name="date" id="email" placeholder="date">
                 </fieldset>
               </div>
               <div class="col-lg-12">
-              <fieldset>
-              <input type="text" name="lucky[]" id="email"  placeholder="lucky number">
-              </fieldset>
-              </div>
-              <div class="col-lg-12">
                 <fieldset>
-                  <button type="submit" id="form-submit" class="main-button ">Send Message</button>
+                  <button type="submit" id="form-submit" class="main-button ">Save Data</button>
                 </fieldset>
               </div>
             </div>
@@ -151,12 +151,12 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </footer>
   <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/animation.js"></script>
-  <script src="assets/js/imagesloaded.js"></script>
-  <script src="assets/js/templatemo-custom.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/owl-carousel.js"></script>
+  <script src="../assets/js/animation.js"></script>
+  <script src="../assets/js/imagesloaded.js"></script>
+  <script src="../assets/js/templatemo-custom.js"></script>
 
 </body>
 </html>

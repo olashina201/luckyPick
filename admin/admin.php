@@ -109,11 +109,11 @@ https://templatemo.com/tm-562-space-dynamic
                   <input type="number" name="luckyid" id="name" placeholder="luckyid" autocomplete="on" required>
                 </fieldset>
               </div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6">
                 <fieldset>
                   <input type="number" name="multiplier" id="surname" placeholder="multiplier" autocomplete="on" required>
                 </fieldset>
-              </div>
+              </div> -->
               <div class="col-lg-12">
                 <fieldset>
                   <input type="date" name="date" id="email" placeholder="date">

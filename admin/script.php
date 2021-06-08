@@ -29,10 +29,10 @@ foreach ($nums as $num_arr) {
 $sql = "INSERT INTO luckyNumber (id, numbers, date) VALUES ('$oid', '$num_str', '$date')";
 
 if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully !";
-	} else {
-		echo "Error: " . $sql . "" . mysqli_error($conn);
-	}
+	$error[] = "<b><font color='red'>successful!</font></b>";
+} else {
+	echo "Error: " . $sql . "" . mysqli_error($conn);
+}
 
 $conn->close();
 
